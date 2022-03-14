@@ -17,7 +17,7 @@ export class AddEvenementComponent implements OnInit {
   validationMassages={
     'nom':{
 'required':'le champ nom est obligatoir',
-'maxLength':' le non doit etre de mois que 30 characters'
+'maxLength':' le nom doit etre de mois que 30 characters'
     },
     'description':{
       'required':'le champ descrition est obligatoir'
