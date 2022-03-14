@@ -1,0 +1,84 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" >         
+            <div class="form-group">
+              <label>Nom</label>
+              <input
+                type="text"
+                formControlName="nom"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['nom'].errors }"
+              />
+              <div *ngIf="submitted && f['nom'].errors" class="invalid-feedback">
+                <div *ngIf="f['nom'].errors['required']">{{validationMassages.nom.required}}</div>                
+                <div *ngIf="f['nom'].errors['maxlength']">
+                  {{validationMassages.nom.maxLength}}                  
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input
+                type="text"
+                formControlName="description"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"
+              />
+              <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                <div *ngIf="f['description'].errors['required']">{{validationMassages.description.required}}</div>
+                
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Date de debut</label>
+              <input
+                type="text" 
+                formControlName="dateDebut" bsDatepicker placeholder="YYYY-MM-DD" [bsConfig]="{ isAnimated: true,dateInputFormat: 'YYYY-MM-DD' }"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['dateDebut'].errors }"
+              />
+              <div *ngIf="submitted && f['dateDebut'].errors" class="invalid-feedback">
+                <div *ngIf="f['dateDebut'].errors['required']">{{validationMassages.dateDebut.required}}</div>  
+                <div *ngIf="f['dateDebut'].errors['errorDate']">{{validationMassages.dateDebut.dateValide}} </div>             
+                
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Date de fin</label>
+              <input
+                type="text" 
+                formControlName="dateFin" bsDatepicker placeholder="YYYY-MM-DD"  [bsConfig]="{ isAnimated: true,dateInputFormat: 'YYYY-MM-DD' }"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['dateFin'].errors }" 
+              />
+              
+              <div *ngIf="submitted && f['dateFin'].errors" class="invalid-feedback">
+                <div *ngIf="f['dateFin'].errors['required']">{{validationMassages.dateDebut.required}} </div>                 
+                <div *ngIf="f['dateFin'].errors['errorDate']">{{validationMassages.dateFin.dateValide}} </div>             
+                
+              </div>
+            </div>       
+          
+          
+            
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-warning float-right"
+            >
+              Reset
+            </button>
+            <button  type="button"  (click)="goBack()" class="btn float-right">
+              Back
+            </button>
+          </div>
+        </form>
+    </div>
+  </div>
+
+
+      
+      
+    
